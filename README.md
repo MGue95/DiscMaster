@@ -2,7 +2,7 @@
 
 **DiscMaster** ist eine moderne, hochperformante Web-Anwendung zur Verwaltung deiner Vinyl-Sammlung, basierend auf der Discogs-Datenbank und erweitert um Spotify-Integration.
 
-![DiscMaster Screenshot](/public/images/logo.png)
+![DiscMaster UI Preview](/public/images/ui-preview.png)
 
 ## ✨ Features
 
