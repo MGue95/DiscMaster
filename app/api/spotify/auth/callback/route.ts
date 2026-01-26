@@ -10,6 +10,7 @@ export async function GET(request: NextRequest) {
     const redirectUri = process.env.SPOTIFY_REDIRECT_URI || `${request.nextUrl.origin}/api/spotify/auth/callback`;
 
     if (!state || state !== storedState) {
+        console.error("State mismatch:", { state, storedState, cookies: request.cookies.getAll() });
         return NextResponse.redirect(new URL("/settings?error=state_mismatch", request.url));
     }
 

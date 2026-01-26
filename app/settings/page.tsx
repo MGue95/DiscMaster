@@ -76,7 +76,14 @@ export default function SettingsPage() {
                                     </div>
                                 </div>
                                 <a
-                                    href="/api/spotify/auth/login"
+                                    href="#"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        // Fix for localhost vs 127.0.0.1 mismatch
+                                        const isLocalhost = window.location.hostname === 'localhost';
+                                        const targetOrigin = isLocalhost ? 'http://127.0.0.1:3000' : window.location.origin;
+                                        window.location.href = `${targetOrigin}/api/spotify/auth/login`;
+                                    }}
                                     className="px-4 py-2 bg-[#1DB954] hover:bg-[#1ed760] text-black text-xs font-black uppercase tracking-widest rounded-full transition-all active:scale-95"
                                 >
                                     Verbinden

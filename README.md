@@ -45,12 +45,17 @@
     DISCOGS_CONSUMER_SECRET=xxx
     SPOTIFY_CLIENT_ID=xxx
     SPOTIFY_CLIENT_SECRET=xxx
+    SPOTIFY_REDIRECT_URI=http://127.0.0.1:3000/api/spotify/auth/callback
     ```
+    
+    **Wichtig für Spotify**: Verwende `http://127.0.0.1:3000` statt `localhost` - Spotify erlaubt nur explizite Loopback-Adressen.
 
 4.  **Dev-Server starten**:
     ```bash
     npm run dev
     ```
+    
+    Öffne die App unter `http://127.0.0.1:3000` (für Spotify-Integration) oder `http://localhost:3000`.
 
 ## 📝 Lizenz
 

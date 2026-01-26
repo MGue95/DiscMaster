@@ -211,9 +211,10 @@ export default function CollectionPage() {
           <div className="space-y-12">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
               {filteredCollection.map((item, idx) => (
-                <div
+                <Link
                   key={`${item.instance_id}-${idx}`}
-                  className="group flex flex-col bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 hover:border-white/20 transition-all hover:-translate-y-2 shadow-2xl"
+                  href={`/release/${item.basic_information.id}`}
+                  className="group flex flex-col bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 hover:border-white/20 transition-all hover:-translate-y-2 shadow-2xl cursor-pointer"
                 >
                   <div className="relative aspect-square overflow-hidden bg-gray-900">
                     {item.basic_information.cover_image ? (
@@ -230,18 +231,7 @@ export default function CollectionPage() {
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
 
-                    {/* Spotify Overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-[2px]">
-                      <a
-                        href={`https://open.spotify.com/search/${encodeURIComponent(item.basic_information.artists[0].name + " " + item.basic_information.title)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-3 bg-[#1DB954] rounded-full shadow-2xl transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:scale-110 active:scale-95"
-                        title="Auf Spotify suchen"
-                      >
-                        <Music className="h-6 w-6 text-black" />
-                      </a>
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
 
                     <div className="absolute bottom-3 left-3 right-3 flex justify-between items-end">
                       <span className="text-[9px] px-2 py-0.5 bg-white/10 backdrop-blur-md rounded-md uppercase font-black tracking-widest text-white/70 border border-white/10">
@@ -268,7 +258,7 @@ export default function CollectionPage() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
 
