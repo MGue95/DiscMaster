@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
     }
 
     const state = crypto.randomBytes(16).toString("hex");
-    const scope = "user-read-private user-read-email user-library-read streaming user-read-playback-state user-modify-playback-state";
+    const scope = "user-read-private user-read-email user-library-read user-library-modify streaming user-read-playback-state user-modify-playback-state playlist-read-private playlist-modify-public playlist-modify-private";
 
     const params = new URLSearchParams({
         response_type: "code",

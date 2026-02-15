@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { PlayerProvider } from "./context/PlayerContext";
 import GlobalPlayer from "./components/GlobalPlayer";
 
 export const metadata: Metadata = {
-  title: "Discogs App",
-  description: "Eine moderne Discogs-Anwendung",
+  title: "DiscMaster - Your Vinyl Collection Manager",
+  description: "Manage your vinyl collection with Discogs integration and Spotify playback",
 };
 
 export default function RootLayout({
@@ -15,6 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
+      <head>
+        <Script
+          src="https://sdk.scdn.co/spotify-player.js"
+          strategy="beforeInteractive"
+        />
+      </head>
       <body className="antialiased">
         <PlayerProvider>
           {children}
